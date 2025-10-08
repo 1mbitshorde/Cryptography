@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Removed
+- Remove Async-IO package dependency
+
 ### Changed
 - Rename Decrypt to DecryptAsync
 - Rename Encrypt to EncryptAsync

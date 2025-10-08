@@ -18,8 +18,5 @@
   "author": {
     "name": "Hyago Oliveira",
     "email": "hyagogow@gmail.com"
-  },
-  "dependencies": {
-    "com.actioncode.async-io": "1.0.0"
   }
 }
