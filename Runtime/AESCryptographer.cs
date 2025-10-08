@@ -1,9 +1,8 @@
 using System;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
-using ActionCode.AsyncIO;
+using UnityEngine;
 
 namespace ActionCode.Cryptography
 {
@@ -12,7 +11,6 @@ namespace ActionCode.Cryptography
     /// </summary>
     public sealed class AESCryptographer : ICryptographer
     {
-        private readonly IStream stream;
         private readonly byte[] keyArray;
         private static readonly byte[] IV = new byte[16];
 
@@ -23,13 +21,9 @@ namespace ActionCode.Cryptography
         /// The 256-AES key.
         /// <para>You can generate it at http://randomkeygen.com/</para>
         /// </param>
-        public AESCryptographer(string key, IStream stream)
-        {
-            this.stream = stream;
-            keyArray = Encoding.UTF8.GetBytes(key);
-        }
+        public AESCryptographer(string key) => keyArray = Encoding.UTF8.GetBytes(key);
 
-        public async Task<string> Encrypt(string value)
+        public async Awaitable<string> EncryptAsync(string value)
         {
             byte[] array;
             using var aes = CreateAlgorithm();
@@ -37,13 +31,14 @@ namespace ActionCode.Cryptography
             using var memoryStream = new MemoryStream();
             await using var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
 
-            await stream.Write(cryptoStream, value);
+            await using var writer = new StreamWriter(cryptoStream);
+            await writer.WriteAsync(value);
 
             array = memoryStream.ToArray();
             return Convert.ToBase64String(array);
         }
 
-        public async Task<string> Decrypt(string value)
+        public async Awaitable<string> DecryptAsync(string value)
         {
             byte[] buffer = Convert.FromBase64String(value);
             using var aes = CreateAlgorithm();
@@ -51,7 +46,7 @@ namespace ActionCode.Cryptography
             await using var memoryStream = new MemoryStream(buffer);
             await using var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
             using var streamReader = new StreamReader(cryptoStream);
-            return await stream.Read(streamReader);
+            return await streamReader.ReadToEndAsync();
         }
 
         private Aes CreateAlgorithm()

@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using UnityEngine;
 
 namespace ActionCode.Cryptography
 {
@@ -11,14 +11,14 @@ namespace ActionCode.Cryptography
         /// Encrypts the given value.
         /// </summary>
         /// <param name="value">A string to encrypt.</param>
-        /// <returns>A task operation of the encrypting process containing a non human readable string.</returns>
-        Task<string> Encrypt(string value);
+        /// <returns>An asynchronous operation of the encrypting process containing a non human readable string.</returns>
+        Awaitable<string> EncryptAsync(string value);
 
         /// <summary>
         /// Decrypts the given value.
         /// </summary>
         /// <param name="value">A string to decrypt.</param>
-        /// <returns>A task operation of the decrypting process containing a human readable string.</returns>
-        Task<string> Decrypt(string value);
+        /// <returns>An asynchronous operation of the decrypting process containing a human readable string.</returns>
+        Awaitable<string> DecryptAsync(string value);
     }
 }

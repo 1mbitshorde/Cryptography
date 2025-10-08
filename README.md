@@ -25,8 +25,8 @@ public class Test : MonoBehaviour
         // You can generate a security key at https://randomkeygen.com/
         var key = "IspwttyeNSQ9qWLouOoG6y1GnozZ9uEn";
         var cryptographer = CryptographerFactory.Create(CryptographerType.AES, key);
-        var encrypted = await cryptographer.Encrypt(json.text);
-        var decrypted = await cryptographer.Decrypt(encrypted);
+        var encrypted = await cryptographer.EncryptAsync(json.text);
+        var decrypted = await cryptographer.DecryptAsync(encrypted);
 
         print(encrypted);
         print(decrypted);
