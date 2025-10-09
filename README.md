@@ -2,7 +2,7 @@
 
 * Encrypt and decrypt text files
 * Unity minimum version: **6000.1**
-* Current version: **1.0.0**
+* Current version: **2.0.0**
 * License: **MIT**
 * Dependencies:
     - [com.actioncode.async-io : 2.0.0](https://github.com/HyagoOliveira/Async-IO/tree/2.0.0)
