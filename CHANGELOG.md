@@ -6,14 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Removed
-- Remove Async-IO package dependency
-
 ### Changed
 - Rename Decrypt to DecryptAsync
 - Rename Encrypt to EncryptAsync
 - Using Awaitable functions inside ICryptographer
 - Increase Unity minimum version to 6000.1
+- Upgrade Async-IO package to 2.0.0
 
 ## [1.0.0] - 2022-08-13
 ### Added
