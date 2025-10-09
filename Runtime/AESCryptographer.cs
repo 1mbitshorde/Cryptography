@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
+using ActionCode.AsyncIO;
 using UnityEngine;
 
 namespace ActionCode.Cryptography
@@ -11,6 +12,7 @@ namespace ActionCode.Cryptography
     /// </summary>
     public sealed class AESCryptographer : ICryptographer
     {
+        private readonly IStream stream;
         private readonly byte[] keyArray;
         private static readonly byte[] IV = new byte[16];
 
@@ -21,7 +23,11 @@ namespace ActionCode.Cryptography
         /// The 256-AES key.
         /// <para>You can generate it at http://randomkeygen.com/</para>
         /// </param>
-        public AESCryptographer(string key) => keyArray = Encoding.UTF8.GetBytes(key);
+        public AESCryptographer(string key, IStream stream)
+        {
+            this.stream = stream;
+            keyArray = Encoding.UTF8.GetBytes(key);
+        }
 
         public async Awaitable<string> EncryptAsync(string value)
         {
@@ -31,8 +37,7 @@ namespace ActionCode.Cryptography
             using var memoryStream = new MemoryStream();
             await using var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
 
-            await using var writer = new StreamWriter(cryptoStream);
-            await writer.WriteAsync(value);
+            await stream.WriteAsync(cryptoStream, value);
 
             array = memoryStream.ToArray();
             return Convert.ToBase64String(array);
@@ -46,7 +51,7 @@ namespace ActionCode.Cryptography
             await using var memoryStream = new MemoryStream(buffer);
             await using var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
             using var streamReader = new StreamReader(cryptoStream);
-            return await streamReader.ReadToEndAsync();
+            return await stream.ReadAsync(streamReader);
         }
 
         private Aes CreateAlgorithm()
