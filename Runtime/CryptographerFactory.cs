@@ -1,6 +1,6 @@
-using ActionCode.AsyncIO;
+using OneM.AsyncIO;
 
-namespace ActionCode.Cryptography
+namespace OneM.Cryptography
 {
     /// <summary>
     /// Static factory class for <see cref="ICryptographer"/>.

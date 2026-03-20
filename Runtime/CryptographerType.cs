@@ -1,4 +1,4 @@
-namespace ActionCode.Cryptography
+namespace OneM.Cryptography
 {
     public enum CryptographerType
     {

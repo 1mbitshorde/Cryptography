@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-03-20
+### Changed
+- Move package into 1M Bits Horde
+
 ## [2.0.0] - 2025-10-09
 ### Changed
 - Rename Decrypt to DecryptAsync
@@ -25,6 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - gitignore
 - Initial commit
 
-[Unreleased]: https://github.com/HyagoOliveira/Cryptography/compare/2.0.0...main
-[2.0.0]: https://github.com/HyagoOliveira/Cryptography/tree/2.0.0/
-[1.0.0]: https://github.com/HyagoOliveira/Cryptography/tree/1.0.0/
+[Unreleased]: https://github.com/1mbitshorde/Cryptography/compare/3.0.0...main
+[3.0.0]: https://github.com/1mbitshorde/Cryptography/tree/2.0.0/
+[2.0.0]: https://github.com/1mbitshorde/Cryptography/tree/2.0.0/
+[1.0.0]: https://github.com/1mbitshorde/Cryptography/tree/1.0.0/

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ActionCode.Cryptography
+namespace OneM.Cryptography
 {
     /// <summary>
     /// Interface used on objects able to encrypt and decrypt strings.

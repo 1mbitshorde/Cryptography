@@ -2,10 +2,10 @@ using System;
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
-using ActionCode.AsyncIO;
+using OneM.AsyncIO;
 using UnityEngine;
 
-namespace ActionCode.Cryptography
+namespace OneM.Cryptography
 {
     /// <summary>
     /// Cryptographer class for strings using AES algorithm.

@@ -1,25 +1,25 @@
 {
-  "name": "com.actioncode.cryptography",
-  "displayName": "ActionCode-Cryptography",
-  "version": "2.0.0",
-  "unity": "6000.1",
+  "name": "com.1mbitshorde.cryptography",
+  "displayName": "1M Bits Horde-Cryptography",
+  "version": "3.0.0",
+  "unity": "6000.3",
   "description": "This package contains Cryptography scripts.",
   "keywords": [
     "Cryptography"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/HyagoOliveira/Cryptography#readme",
+  "homepage": "https://github.com/1mbitshorde/Cryptography#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HyagoOliveira/Cryptography.git"
+    "url": "https://github.com/1mbitshorde/Cryptography.git"
   },
-  "documentationUrl": "https://github.com/HyagoOliveira/Cryptography#readme",
-  "changelogUrl": "https://github.com/HyagoOliveira/Cryptography/CHANGELOG.md",
+  "documentationUrl": "https://github.com/1mbitshorde/Cryptography#readme",
+  "changelogUrl": "https://github.com/1mbitshorde/Cryptography/CHANGELOG.md",
   "author": {
     "name": "Hyago Oliveira",
     "email": "hyagogow@gmail.com"
   },
   "dependencies": {
-    "com.actioncode.async-io": "2.0.0"
+    "com.1mbitshorde.async-io": "3.0.0"
   }
 }

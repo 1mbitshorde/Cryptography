@@ -1,6 +1,6 @@
 {
-    "name": "ActionCode.Cryptography",
-    "rootNamespace": "ActionCode.Cryptography",
+    "name": "OneM.Cryptography",
+    "rootNamespace": "OneM.Cryptography",
     "references": [
         "GUID:dacaed47f477b174c9d20ed2632aff70"
     ],
